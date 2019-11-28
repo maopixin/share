@@ -1,0 +1,10 @@
+{
+    "files": [
+        "src/main.ts",
+        "src/gree.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es2015"
+    }
+}
