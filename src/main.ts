@@ -1,14 +1,12 @@
-const a = 123;
-class Share {
-    el: string;
-    options: object;
-    a: number;
-    constructor(el: string, options: object) {
-        this.el = el;
-        this.options = options;
-        this.a = a;
-        document.getElementById('a').className = '123'
+export default async function ( n: number ) {
+    while ( --n ) {
+        await delay( 10, n );
     }
 }
-// window.Share = Share;
-export default Share;
+
+function delay ( interval: number, num: number ) {
+    return new Promise( resolve => setTimeout( () => {
+        console.log(num)
+        resolve();
+    }, interval ) );
+}
