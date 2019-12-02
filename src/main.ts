@@ -1,6 +1,14 @@
-import { sayHello } from "./gree";
-function showHello(divName: string, name: string) {
-    const elt = document.getElementById(divName);
-    elt.innerText = sayHello(name);
+const a = 123;
+class Share {
+    el: string;
+    options: object;
+    a: number;
+    constructor(el: string, options: object) {
+        this.el = el;
+        this.options = options;
+        this.a = a;
+        document.getElementById('a').className = '123'
+    }
 }
-showHello("greeting", "TypeScript");
+// window.Share = Share;
+export default Share;
