@@ -72,9 +72,9 @@ var Share = (function () {
         return new Promise(function (resolve) { return setTimeout(function () {
             console.log(num);
             resolve();
+            document.getElementById('aa').className = '123';
         }, interval); });
     }
-    //# sourceMappingURL=main.js.map
 
     return main;
 
