@@ -1,13 +1,12 @@
-export default async function ( n: number ) {
-    while ( --n ) {
-        await delay( 10, n );
+import defaults from './data/options';
+class Share {
+    el: string;
+    config: object;
+    constructor(el:string, config:object = {}) {
+        this.config = defaults;
+    };
+    init() {
+        console.log(this.config);
     }
-}
-
-function delay ( interval: number, num: number ) {
-    return new Promise( resolve => setTimeout( () => {
-        console.log(num)
-        resolve();
-        document.getElementById('aa').className = '123'
-    }, interval ) );
-}
+};
+export default Share;
