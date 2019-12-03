@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="//at.alicdn.com/t/font_1542136_31lm1lwmid4.js"></script>
 </head>
 <body>
-    <div class="share"></div>
+    <div class="share">
+        <div>
+            <a href="http://www.baidu.com">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icongoogle"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
 </body>
 <script src="../dist/share.js"></script>
 <script>
-    var share = new Share('.a');
+    var share = new Share(123);
     share.init();
 </script>
 </html>

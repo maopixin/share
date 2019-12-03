@@ -9,7 +9,7 @@ const resolveFile = function(filePath) {
 
 configList.map((config, index) => {
 
-  config.output.sourcemap = true;
+  config.output.sourcemap = false;
   config.plugins = [
     ...config.plugins,
     ...[

@@ -1,4 +1,5 @@
 import defaults from './data/options';
+import './style/index.less'
 class Share {
     el: string;
     config: object;

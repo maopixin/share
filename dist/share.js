@@ -1,6 +1,20 @@
 var Share = (function () {
     'use strict';
 
+    
+
+    function __$styleInject(css) {
+        if (!css) return;
+
+        if (typeof window == 'undefined') return;
+        var style = document.createElement('style');
+        style.setAttribute('media', 'screen');
+
+        style.innerHTML = css;
+        document.head.appendChild(style);
+        return css;
+    }
+
     function getMetaContentByName(name) {
         var ele = document.getElementsByName(name)[0];
         return ele ? ele.content : '';
@@ -31,7 +45,8 @@ var Share = (function () {
         disabled: [],
         initialized: false
     };
-    //# sourceMappingURL=options.js.map
+
+    __$styleInject(".icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden;\n}\n");
 
     var Share = /** @class */ (function () {
         function Share(el, config) {
@@ -42,7 +57,6 @@ var Share = (function () {
         };
         return Share;
     }());
-    //# sourceMappingURL=main.js.map
 
     return Share;
 
