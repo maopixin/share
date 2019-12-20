@@ -1,7 +1,7 @@
 /*
  * @Author: oliver
  * @Date: 2019-12-03 09:54:02
- * @LastEditTime : 2019-12-20 14:10:13
+ * @LastEditTime : 2019-12-20 15:49:23
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /share/src/utils/index.ts
@@ -38,7 +38,7 @@ export function getDataSet(cls:string):object {
 	}else{
 		const attrs:NamedNodeMap = ele.attributes;
         const len:number = attrs.length;
-        let obj:object = {};
+        let obj:any = {};
         
 		for (let i = 0; i < len; i++) {
             const item = attrs[i];
