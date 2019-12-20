@@ -1,0 +1,17 @@
+{
+    "presets": [
+        "@babel/preset-typescript",
+        ["@babel/env", {
+			"targets": "last 2 version",
+			"modules": false
+		}]
+    ],
+    "plugins": [
+        // "@babel/proposal-class-properties",
+		"@babel/plugin-transform-classes",
+		"@babel/plugin-proposal-class-properties",
+		["@babel/plugin-transform-typescript", {
+			"allowNamespaces": true
+		}]
+	]
+}

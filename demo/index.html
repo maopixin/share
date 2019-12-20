@@ -8,7 +8,7 @@
     <script src="//at.alicdn.com/t/font_1542136_31lm1lwmid4.js"></script>
 </head>
 <body>
-    <div class="share">
+    <div class="share" data-name-size='123'>
         <div>
             <a href="http://www.baidu.com">
                 <svg class="icon" aria-hidden="true">
@@ -20,7 +20,6 @@
 </body>
 <script src="../dist/share.js"></script>
 <script>
-    var share = new Share(123);
-    share.init();
+    var share = new Share('.share');
 </script>
 </html>

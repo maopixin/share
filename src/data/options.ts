@@ -1,19 +1,19 @@
 import { getMetaContentByName, getFirstImage } from '../utils';
 
+const url = location.href;
+const origin = location.origin;
 const site = getMetaContentByName('site') || getMetaContentByName('Site') || document.title;
 const title = getMetaContentByName('title') || getMetaContentByName('Title') || document.title;
 const description = getMetaContentByName('description') || getMetaContentByName('Description');
 const image = getFirstImage();
 
-
-
 export default {
-    url: location.href,
-    origin: location.origin,
+    url,
+    origin,
     source: site,
-    title: title,
-    description: description,
-    image: image,
+    title,
+    description,
+    image,
     imageSelector: undefined,
     weiboKey: '',
     wechatQrcodeTitle: '微信扫一扫：分享',

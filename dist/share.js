@@ -23,14 +23,36 @@ var Share = (function () {
         var ele = document.images[0];
         return ele ? ele.src : '';
     }
+    function getDataSet(cls) {
+        var ele = document.querySelector(cls);
+        if (ele.dataset) {
+            return JSON.parse(JSON.stringify(ele.dataset));
+        }
+        else {
+            var attrs = ele.attributes;
+            var len = attrs.length;
+            var obj = {};
+            for (var i = 0; i < len; i++) {
+                var item = attrs[i];
+                var key = item.name;
+                if (key.indexOf("data-") > -1) {
+                    key = key.replace(/^data-/i, '').replace(/-(\w)/g, function (all, letter) { return letter.toUpperCase(); });
+                    obj[key] = item.value;
+                }
+            }
+            return obj;
+        }
+    }
 
+    var url = location.href;
+    var origin = location.origin;
     var site = getMetaContentByName('site') || getMetaContentByName('Site') || document.title;
     var title = getMetaContentByName('title') || getMetaContentByName('Title') || document.title;
     var description = getMetaContentByName('description') || getMetaContentByName('Description');
     var image = getFirstImage();
     var defaults = {
-        url: location.href,
-        origin: location.origin,
+        url: url,
+        origin: origin,
         source: site,
         title: title,
         description: description,
@@ -50,9 +72,13 @@ var Share = (function () {
 
     var Share = /** @class */ (function () {
         function Share(el, config) {
-            this.config = defaults;
+            if (el === void 0) { el = '.custom-share'; }
+            if (config === void 0) { config = {}; }
+            var dataConfig = getDataSet(el);
+            this.config = Object.assign(defaults, dataConfig, config);
+            this.initialization();
         }
-        Share.prototype.init = function () {
+        Share.prototype.initialization = function () {
             console.log(this.config);
         };
         return Share;
