@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-02 18:04:27
- * @LastEditTime : 2019-12-20 16:02:21
+ * @LastEditTime : 2019-12-20 16:06:47
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /share/build/rollup.config.js
@@ -32,11 +32,11 @@ module.exports = [
 			typescript({
 				verbosity: 3,
 				tsconfigDefaults: {
-					extendedDiagnostics: false
+					extendedDiagnostics: process.env.NODE_ENV === 'production'
 				},
 				useTsconfigDeclarationDir: true,
 				objectHashIgnoreUnknownHack: true,
-				clean: false,
+				clean: process.env.NODE_ENV === 'production',
 				include: ['*.ts+(|x)', '**/*.ts+(|x)', '*.js+(|x)', '**/*.js+(|x)']
 			}),
 			buble(),

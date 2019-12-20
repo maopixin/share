@@ -66,32 +66,16 @@ var Share = (function () {
         var ele = document.images[0];
         return ele ? ele.src : '';
     }
-    /**
-     * @description: 通过class获取元素的自定义属性对象
-     * @param {string}} cls 元素的class（.class）
-     * @return {object}: 元素的data-属性
-     */
-    function getDataSet(cls) {
-        var ele = document.querySelector(cls);
-        if (ele.dataset) {
-            return JSON.parse(JSON.stringify(ele.dataset));
-        }
-        else {
-            var attrs = ele.attributes;
-            var len = attrs.length;
-            var obj = {};
-            for (var i = 0; i < len; i++) {
-                var item = attrs[i];
-                var key = item.name;
-                if (key.indexOf("data-") > -1) {
-                    key = key.replace(/^data-/i, '').replace(/-(\w)/g, function (all, letter) { return letter.toUpperCase(); });
-                    obj[key] = item.value;
-                }
-            }
-            return obj;
-        }
-    }
+    //# sourceMappingURL=index.js.map
 
+    /*
+     * @Author: your name
+     * @Date: 2019-12-20 14:54:13
+     * @LastEditTime : 2019-12-20 17:14:42
+     * @LastEditors  : Please set LastEditors
+     * @Description: In User Settings Edit
+     * @FilePath: /share/src/data/options.ts
+     */
     var url = location.href;
     var origin = location.origin;
     var site = getMetaContentByName('site') || getMetaContentByName('Site') || document.title;
@@ -102,10 +86,11 @@ var Share = (function () {
         url: url,
         origin: origin,
         source: site,
+        summary: '',
         title: title,
         description: description,
         image: image,
-        imageSelector: undefined,
+        imageSelector: '',
         weiboKey: '',
         wechatQrcodeTitle: '微信扫一扫：分享',
         wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
@@ -113,23 +98,61 @@ var Share = (function () {
         sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'],
         mobileSites: [],
         disabled: [],
-        initialized: false
+        initialized: false,
+        mode: ''
     };
+    //# sourceMappingURL=options.js.map
 
-    __$styleInject(".share_item {\n  display: inline-block;\n  vertical-align: top;\n}\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden;\n}\n");
+    __$styleInject(".icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden;\n}\n.share_item {\n  display: inline-block;\n  vertical-align: top;\n}\n.share_item .icon {\n  font-size: 30px;\n}\n");
 
     var Share = /** @class */ (function () {
         function Share(el, config) {
             if (el === void 0) { el = '.custom-share'; }
             if (config === void 0) { config = {}; }
-            var dataConfig = getDataSet(el);
+            this.isWx = /MicroMessenger/i.test(navigator.userAgent);
+            this.isMobile = document.documentElement.clientWidth <= 768;
+            // 由于不想config的属性有多种类型，所以先不支持元素属性
+            // const dataConfig = getDataSet(el);
             this.el = el;
-            this.config = __assign(__assign(__assign({}, defaults), dataConfig), config);
-            this.initialization();
+            this.config = __assign(__assign({}, defaults), config);
+            this.createIcons();
+            this.createWechat();
         }
-        Share.prototype.initialization = function () {
-            console.log(this.config);
-            alert(1 + 1);
+        Share.prototype.createIcons = function () {
+            var _this = this;
+            this.handleSites();
+            var isPrepend = this.config.mode == 'prepend';
+            isPrepend && this.config.sites.reverse();
+            this.config.sites.forEach(function (name, index) {
+                var url = _this.makeUrl(name);
+            });
+        };
+        Share.prototype.createWechat = function () {
+        };
+        Share.prototype.handleSites = function () {
+            var config = this.config;
+            if (config.mobileSites.length == 0) {
+                config.mobileSites = config.sites;
+            }
+            // 如果当前环境是微信浏览器，则禁用微信分享
+            if (this.isWx) {
+                config.disabled.push('wechat');
+            }
+            // 删除sites中被disabled包含的部分
+            if (config.disabled.length > 0) {
+                config.disabled.forEach(function (e, i) {
+                    var pcSiteshasIndex = config.sites.indexOf(e);
+                    var mbSiteshasIndex = config.mobileSites.indexOf(e);
+                    pcSiteshasIndex > -1 && config.sites.splice(pcSiteshasIndex, 1);
+                    mbSiteshasIndex > -1 && config.mobileSites.splice(mbSiteshasIndex, 1);
+                });
+            }
+        };
+        Share.prototype.makeUrl = function (name) {
+            if (!this.config.summary) {
+                this.config.summary = this.config.description;
+            }
+            return '';
         };
         return Share;
     }());

@@ -2,10 +2,11 @@ declare const _default: {
     url: string;
     origin: string;
     source: string;
+    summary: string;
     title: string;
     description: string;
     image: string;
-    imageSelector: undefined;
+    imageSelector: string;
     weiboKey: string;
     wechatQrcodeTitle: string;
     wechatQrcodeHelper: string;
@@ -14,5 +15,6 @@ declare const _default: {
     mobileSites: never[];
     disabled: never[];
     initialized: boolean;
+    mode: string;
 };
 export default _default;
