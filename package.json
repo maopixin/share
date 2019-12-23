@@ -1,6 +1,6 @@
 {
-  "name": "share",
-  "version": "1.0.0",
+  "name": "share2",
+  "version": "0.0.1",
   "description": "一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等",
   "main": "dist/share.js",
   "scripts": {
