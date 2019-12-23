@@ -10,6 +10,8 @@ const path = require('path');
 const buble = require('rollup-plugin-buble');
 const typescript = require('rollup-plugin-typescript2');
 const less = require('rollup-plugin-less');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 
 const resolveFile = function (filePath) {
 	return path.join(__dirname, '..', filePath)
@@ -20,11 +22,21 @@ module.exports = [
 		input: resolveFile('src/main.ts'),
 		output: {
 			file: resolveFile('dist/Share.js'),
-			format: 'iife',
+			format: 'umd',
 			name: 'Share',
 			sourceMap: true
 		},
 		plugins: [
+			resolve({
+				jsnext: true,
+				main: true,
+				customResolveOptions: {
+					moduleDirectory: 'node_modules'
+				}
+			}),
+        	commonjs({
+				include: 'node_modules/**'
+			}),
 			less({
 				insert: true,
 				output: false
@@ -41,5 +53,6 @@ module.exports = [
 			}),
 			buble(),
 		],
+		external: ['qrcodejs2']
 	},
 ]

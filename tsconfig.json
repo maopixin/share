@@ -18,8 +18,10 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "suppressImplicitAnyIndexErrors": true,
     "resolveJsonModule": true,
     "keyofStringsOnly": true,
+    "noImplicitAny": false,
     "types": [
       "@types/node"
     ],
@@ -29,5 +31,8 @@
   },
   "include": [
     "./src/**/*"
+  ],
+  "exclude": [
+    "./src/utils/qrcode.js"
   ]
 }

@@ -1,4 +1,6 @@
 import './style/index.less';
+import './utils/qrcode';
+import './utils/iconfont';
 interface Config {
     url: string;
     origin: string;
@@ -19,13 +21,16 @@ interface Config {
     mode: string;
 }
 declare class Share {
-    el: string;
+    el: HTMLElement;
     config: Config;
     isWx: boolean;
     isMobile: boolean;
     constructor(el?: string, config?: object);
+    getRoot(el: string): HTMLElement;
     createIcons(): void;
-    createWechat(): void;
+    createWechat(): false | undefined;
+    createLink(name: string, url: string): HTMLAnchorElement;
+    handleLink(name: string, url: string): void;
     handleSites(): void;
     makeUrl(name: string): string;
 }

@@ -5,28 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="//at.alicdn.com/t/font_1542136_31lm1lwmid4.js"></script>
+    <style>
+        body{
+            margin-top: 300px;
+        }
+    </style>
+    <!-- <script src="//at.alicdn.com/t/font_1542136_xr7cnqqna3.js"></script> -->
 </head>
 <body>
-    <div class="share" data-name-size='123' data-disabled="google,twitter,facebook">
-        <div class="share_item">
-            <a href="http://www.baidu.com">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icongoogle"></use>
-                </svg>
-            </a>
-        </div>
-        <div class="share_item">
-            <a href="http://www.baidu.com">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icongoogle"></use>
-                </svg>
-            </a>
-        </div>
+    <div class="share">
+        
     </div>
 </body>
 <script src="../dist/share.js"></script>
 <script>
-    var share = new Share('.share');
+    var share = new Share('.share', {
+        wechatQrcodeTitle: '微信',
+        wechatQrcodeHelper: '123',
+        sites: ['qq', 'weibo']
+    });
 </script>
 </html>
