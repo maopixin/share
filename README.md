@@ -22,7 +22,7 @@ HTML:
 ```html
 <div class="share"></div>
 
-<!--  css & js -->
+<!--  引入js -->
 <script src="dist/js/Share.js"></script>
 
 // 当你使用类名为 `.custom-share` 时不需要手动初始化
