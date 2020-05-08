@@ -42,10 +42,12 @@ title               : '', // 标题，默认读取 document.title 或者 <meta n
 origin              : '', // 分享 @ 相关 twitter 账号
 description         : '', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />
 image               : '', // 图片, 默认取网页中第一个img标签
-sites               : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点
-disabled            : ['google', 'facebook', 'twitter'], // 禁用的站点
+sites               : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点(此顺序代表最终渲染的顺序)
+disabled            : ['google', 'facebook', 'twitter'], // 禁用的站点（即使sites参数指定的站点，这里也可以禁用）
+initialized         : false // 自定义初始化
 wechatQrcodeTitle   : '微信扫一扫：分享', // 微信二维码提示文字
 wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
+wechatQrcodePosition: 'top', // 二维码展示方向 仅支持top bottom
 ```
 
 示例代码：
@@ -59,6 +61,24 @@ var $config = {
 };
 
 share('.social-share-cs', $config);
+```
+
+自定义初始化
+
+如果不喜欢默认的样式、图标，可以尝试使用自定义初始化
+
+```html
+<div class="share">
+    <!-- 保证存在与sites参数列表相同类名的a标签 -->
+    <a class="google" href="">google</a>
+    <a class="twitter" href="">twitter</a>
+</div>
+```
+```js
+var share = new Share('.share', {
+    sites: ['google', 'twitter'],
+    initialized: true
+});
 ```
 
 

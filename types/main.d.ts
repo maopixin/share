@@ -14,6 +14,7 @@ interface Config {
     wechatQrcodeTitle: string;
     wechatQrcodeHelper: string;
     wechatQrcodeSize: number;
+    wechatQrcodePosition: string;
     mobileSites: Array<string>;
     sites: Array<string>;
     disabled: Array<string>;

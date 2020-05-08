@@ -20,6 +20,7 @@ interface Config {
     wechatQrcodeTitle: string,
     wechatQrcodeHelper: string,
     wechatQrcodeSize: number,
+    wechatQrcodePosition: string,
     mobileSites: Array<string>,
     sites: Array<string>,
     disabled: Array<string>,
@@ -67,7 +68,7 @@ class Share {
         const wechat = document.querySelector<HTMLAnchorElement>('.wechat');
         if(wechat) {
             const div: HTMLDivElement = document.createElement('div');
-            div.className = "wechat-qrcode";
+            div.className = "wechat-qrcode " + this.config.wechatQrcodePosition;
             div.innerHTML = `<h4>${this.config.wechatQrcodeTitle}</h4>
                             <div class="qrcode"></div>
                             <div class="help">${this.config.wechatQrcodeHelper}</div>`;

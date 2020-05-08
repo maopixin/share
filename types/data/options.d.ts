@@ -10,6 +10,7 @@ declare const _default: {
     weiboKey: string;
     wechatQrcodeTitle: string;
     wechatQrcodeHelper: string;
+    wechatQrcodePosition: string;
     wechatQrcodeSize: number;
     sites: string[];
     mobileSites: never[];

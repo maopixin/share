@@ -27,6 +27,7 @@ export default {
     weiboKey: '',
     wechatQrcodeTitle: '微信扫一扫：分享',
     wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+    wechatQrcodePosition: 'top',
     wechatQrcodeSize: 100,
     sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'],
     mobileSites: [],

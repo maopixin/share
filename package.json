@@ -4,6 +4,7 @@
   "description": "一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等",
   "main": "dist/share.js",
   "scripts": {
+    "start": "NODE_ENV=develop node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js",
     "dev": "NODE_ENV=develop node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js",
     "build": "NODE_ENV=production node_modules/.bin/rollup -c ./build/rollup.config.prod.js"
   },
