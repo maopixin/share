@@ -1,15 +1,16 @@
 {
   "name": "share2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等",
+  "homepage": "https://github.com/maopixin/share",
   "main": "dist/share.js",
   "scripts": {
     "start": "NODE_ENV=develop node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js",
     "dev": "NODE_ENV=develop node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js",
     "build": "NODE_ENV=production node_modules/.bin/rollup -c ./build/rollup.config.prod.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "oliver_m<18364076997@163.com>",
+  "license": "MIT",
   "devDependencies": {
     "rollup": "^1.27.7",
     "rollup-plugin-buble": "^0.19.8",
