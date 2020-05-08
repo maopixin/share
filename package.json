@@ -1,7 +1,7 @@
 {
   "name": "share2",
   "version": "0.0.3",
-  "description": "一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等",
+  "description": "一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等,仅46k,包含样式与图标，无需繁杂的引入",
   "homepage": "https://github.com/maopixin/share",
   "main": "dist/share.js",
   "scripts": {
